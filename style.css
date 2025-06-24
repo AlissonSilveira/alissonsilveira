@@ -1,0 +1,477 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #6a0dad; /* Roxo */
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.screen {
+    display: none; /* Esconde todas as telas por padrão */
+}
+
+.screen.active {
+    display: block; /* Mostra a tela ativa */
+}
+
+h2 {
+    color: #6a0dad;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #8a2be2; /* Azul-violeta */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 5px;
+    display: block;
+    width: calc(100% - 10px); /* Ajuste para espaçamento */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+}
+
+button:hover {
+    background-color: #6a0dad;
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="date"] {
+    width: calc(100% - 22px); /* Ajuste para padding e border */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Estilos para a tabela de conversão (geral do aplicativo) */
+#conversionTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#conversionTable th,
+#conversionTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#conversionTable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Estilos para cards de resultado no laudo */
+.result-card {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-left: 5px solid #8a2be2;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.result-card h3 {
+    margin-top: 0;
+    color: #6a0dad;
+}
+
+.result-card p {
+    margin: 5px 0;
+}
+
+/* Estilo para o link "Ver mais informações" */
+.result-card .more-info-link {
+    display: block; /* Para ocupar a linha toda */
+    text-align: right;
+    font-size: 0.9em;
+    margin-top: 10px;
+    color: #8a2be2;
+    text-decoration: none;
+    font-weight: bold;
+}
+.result-card .more-info-link:hover {
+    text-decoration: underline;
+}
+
+
+.details-section {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.details-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+    border-bottom: 1px dashed #ccc;
+}
+.details-item:last-child {
+    border-bottom: none;
+}
+
+/* Estilos para a tabela de detalhes do cálculo do nome (3 linhas) */
+.name-conversion-detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 1.1em;
+    table-layout: fixed; /* Ajuda a manter as colunas uniformes */
+}
+
+.name-conversion-detail-table td {
+    border: 1px solid #bbb;
+    padding: 5px 2px; /* Reduz padding lateral para encaixar mais colunas */
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap; /* Impede quebras de linha nas células */
+    overflow: hidden; /* Oculta o conteúdo que excede */
+    text-overflow: ellipsis; /* Adiciona "..." se o conteúdo for muito longo */
+    min-width: 30px; /* Largura mínima para as colunas das letras/valores */
+}
+
+.name-conversion-detail-table .vogal-line td,
+.name-conversion-detail-table .consoante-line td {
+    background-color: #e6e6fa; /* Fundo claro para as linhas de valores */
+    font-weight: bold;
+    color: #333;
+}
+
+.name-conversion-detail-table .vogal-line td:not(.sum-cell) {
+    color: #008000; /* Verde para valores de vogais */
+}
+
+.name-conversion-detail-table .consoante-line td:not(.sum-cell) {
+    color: #ff0000; /* Vermelho para valores de consoantes */
+}
+
+.name-conversion-detail-table .name-line td {
+    background-color: #d8bfd8; /* Fundo do nome */
+    font-weight: bold;
+    color: #333;
+}
+
+.name-conversion-detail-table .sum-cell {
+    background-color: #f2f2f2; /* Fundo para as células de soma */
+    font-size: 0.9em;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 10px;
+    width: 120px; /* Largura fixa para a célula de soma */
+    border-left: 2px solid #8a2be2; /* Separador visual */
+}
+
+/* Estilos para a tabela de detalhes do endereço */
+.address-conversion-detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.address-conversion-detail-table th,
+.address-conversion-detail-table td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    text-align: center;
+}
+
+.address-conversion-detail-table th {
+    background-color: #e0ffe0; /* Fundo verde claro */
+    font-weight: bold;
+}
+
+.address-conversion-detail-table td:nth-child(2) { /* Coluna Tipo */
+    font-style: italic;
+    color: #555;
+}
+.address-conversion-detail-table td:nth-child(3) { /* Coluna Valor */
+    font-weight: bold;
+    color: #6a0dad; /* Cor roxa */
+}
+
+/* NOVO: Estilos para a tabela do Mapa de Potencialidade na Horizontal */
+.potentiality-map-table.horizontal {
+    width: 100%; /* Ocupa a largura total */
+    max-width: 700px; /* Limite para não ficar muito esticada */
+    margin: 15px auto;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ajuda a distribuir as colunas igualmente */
+}
+
+.potentiality-map-table.horizontal th,
+.potentiality-map-table.horizontal td {
+    border: 1px solid #ddd;
+    padding: 8px 4px; /* Padding ajustado para mais colunas */
+    text-align: center;
+    font-weight: bold;
+}
+
+.potentiality-map-table.horizontal th {
+    background-color: #f2f2f2;
+    color: #6a0dad;
+    font-size: 0.95em;
+}
+
+.potentiality-map-table.horizontal tr:nth-child(1) td { /* Célula "Quantidade" */
+    background-color: #e6e6fa;
+    font-size: 0.95em;
+    text-align: center;
+}
+
+.potentiality-map-table.horizontal tr:nth-child(2) td { /* Células de valor da quantidade */
+    background-color: #fff;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.potentiality-summary {
+    text-align: center;
+    font-style: italic;
+    margin-top: 15px;
+    color: #555;
+}
+
+.potentiality-tip {
+    font-size: 0.85em;
+    color: #777;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+/* Ajuste para telas menores */
+@media (max-width: 600px) {
+    .name-conversion-detail-table td {
+        font-size: 0.9em;
+        padding: 3px 1px;
+    }
+    .name-conversion-detail-table .sum-cell {
+        width: 100px;
+        font-size: 0.8em;
+    }
+    .address-conversion-detail-table th,
+    .address-conversion-detail-table td {
+        font-size: 0.8em;
+        padding: 4px;
+    }
+    .potentiality-map-table.horizontal {
+        max-width: 100%;
+    }
+    .potentiality-map-table.horizontal th,
+    .potentiality-map-table.horizontal td {
+        font-size: 0.85em;
+        padding: 6px 2px;
+    }
+    .potentiality-map-table.horizontal .sum-cell {
+        width: auto;
+    }
+}
+
+
+/* Estilos para a lista de laudos salvos */
+.laudo-item {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.laudo-item .info {
+    flex-grow: 1;
+}
+
+.laudo-item h4 {
+    margin: 0;
+    color: #6a0dad;
+}
+
+.laudo-item p {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.laudo-item .actions button {
+    width: auto;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.laudo-item .actions .delete-button {
+    background-color: #dc3545; /* Vermelho para excluir */
+}
+.laudo-item .actions .delete-button:hover {
+    background-color: #c82333;
+}
+
+a {
+    color: #8a2be2;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/* --- Estilos para a Grade de Flechas da Individualidade --- */
+#numerologyGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 240px;
+    height: 240px;
+    margin: 20px auto;
+    border: 2px solid #6a0dad; /* Roxo */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.grid-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #d8bfd8; /* Lavanda claro */
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+    min-height: 80px;
+}
+
+/* Estilos para a análise das flechas */
+#arrowsAnalysis {
+    margin-top: 25px;
+    text-align: left;
+}
+
+#arrowsAnalysis h4 {
+    color: #6a0dad;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-top: 15px;
+}
+
+#arrowsAnalysis ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#arrowsAnalysis li {
+    background-color: #f0f0f0;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 4px solid #8a2be2; /* Azul-violeta */
+}
+
+#arrowsAnalysis li.weakness {
+    border-left-color: #dc3545; /* Vermelho para fraqueza */
+}
+/* Estilos para a seção de Números Repetidos */
+.repeated-number-details {
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #fcfaff; /* Um tom de lavanda muito claro */
+}
+
+.repeated-number-details summary {
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    color: #4a0e7e; /* Roxo mais escuro para o título */
+}
+
+.repeated-number-details summary:hover {
+    background-color: #f5f0fa;
+}
+
+.repeated-number-details p {
+    padding: 0 15px 15px 15px;
+    margin: 0;
+    line-height: 1.6;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
+}
+/* --- Estilos para a Grade de Flechas da Individualidade --- */
+
+/* Estilo para o container da Grade (o quadrado 3x3) */
+#numerologyGrid {
+    /* Esta é a propriedade mais importante: ativa o layout de grade. */
+    display: grid;
+    
+    /* Define que a grade terá 3 colunas de tamanho igual. */
+    grid-template-columns: repeat(3, 1fr);
+
+    /* Define que a grade terá 3 linhas de tamanho igual. */
+    grid-template-rows: repeat(3, 1fr);
+    
+    /* Define um tamanho fixo para a grade ser um quadrado. */
+    width: 240px;
+    height: 240px;
+
+    /* Centraliza a grade na tela. */
+    margin: 25px auto;
+    
+    /* Desenha a borda externa roxa. */
+    border: 2px solid #6a0dad;
+    border-radius: 8px;
+    background-color: #fdfaff;
+}
+
+/* Estilo para cada célula DENTRO da grade */
+.grid-cell {
+    /* Este conjunto de 3 regras centraliza o número perfeitamente na célula. */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Desenha as linhas finas que separam as células. */
+    border: 1px solid #e6e6fa;
+
+    /* Estiliza o texto do número. */
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+
+    /* Define uma altura mínima para garantir que a célula não encolha. */
+    min-height: 80px;
+}

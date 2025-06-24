@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerologia Quântica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Numerologia Quântica</h1>
+    </header>
+
+    <main>
+        <div id="homeScreen" class="screen active">
+            <h2>Bem-vindo!</h2>
+            <button id="btnNewLaudo">Gerar Novo Laudo</button>
+            <button id="btnMyLaudos">Meus Laudos</button>
+            <button id="btnFlechas">Ver Flechas da Individualidade</button> <button id="btnConversionTable">Tabela de Conversão</button>
+            <hr style="margin: 20px 0;">
+            <button id="btnInterpretations">Ver Interpretações Detalhadas</button>
+            <button id="btnAbout">Sobre / Contato</button>
+        </div>
+
+        <div id="laudoInputScreen" class="screen">
+            <h2>Dados para o Laudo</h2>
+            <form id="laudoForm">
+                <label for="nomeCompleto">Nome da pessoa de batismo:</label>
+                <input type="text" id="nomeCompleto" required>
+
+                <label for="dataNascimento">Data de Nascimento:</label>
+                <input type="date" id="dataNascimento" required>
+
+                <label for="endereco">Endereço (opcional):</label>
+                <input type="text" id="endereco">
+
+                <label for="telefone">Telefone (opcional):</label>
+                <input type="text" id="telefone">
+
+                <button type="submit">Gerar Laudo Numerológico</button>
+                <button type="button" id="btnInputBackToHome">Voltar</button>
+            </form>
+        </div>
+
+        <div id="laudoResultScreen" class="screen">
+            <h2>Seu Laudo Numerológico</h2>
+            <div id="resultContent">
+                </div>
+            <button id="btnSaveLaudo">Salvar Laudo</button>
+            <button id="btnNewCalculation">Novo Cálculo</button>
+            <button id="btnResultBackToHome">Voltar ao Início</button>
+        </div>
+
+        <div id="historyScreen" class="screen">
+            <h2>Meus Laudos Salvos</h2>
+            <div id="laudosList">
+                </div>
+            <button id="btnHistoryBackToHome">Voltar</button>
+        </div>
+
+        <div id="conversionTableScreen" class="screen">
+            <h2>Tabela de Conversão</h2>
+            <p>Esta tabela mostra a correspondência entre letras e números para os cálculos numerológicos:</p>
+            <table id="conversionTable">
+                <thead>
+                    <tr>
+                        <th>Número</th>
+                        <th>Letras</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+            <button id="btnTableBackToHome">Voltar</button>
+        </div>
+
+        <div id="aboutScreen" class="screen">
+            <h2>Sobre / Contato</h2>
+            <h3>Numerologia Quântica por Alïsson' Sïlva</h3>
+            <p>Este aplicativo é uma ferramenta para auxiliar nos cálculos e na geração do seu laudo de numerologia quântica, seguindo os princípios Pitagóricos e Quânticos.</p>
+            
+            <h3>Facilitadora:</h3>
+            <p>Raquel Schneider Scheidhauer</p>
+            <p>Terapeuta Holística</p>
+            <p>Telefone/WhatsApp: <a href="https://wa.me/5551999259424" target="_blank">51.99925.9424</a></p>
+            <p>Instagram: <a href="https://www.instagram.com/_raquelschneider" target="_blank">@raquelschneider</a></p>
+            <button id="btnAboutBackToHome">Voltar</button>
+        </div>
+        <div id="flechasScreen" class="screen">
+            <h2>Flechas da Individualidade</h2>
+            <p>
+                Digite uma data de nascimento para ver o mapa numerológico e descobrir as flechas de força e fraqueza, que revelam traços marcantes da personalidade.
+            </p>
+            <form id="flechasForm">
+                <label for="flechasDataNascimento">Data de Nascimento:</label>
+                <input type="date" id="flechasDataNascimento" required>
+                <button type="submit">Analisar Flechas</button>
+            </form>
+
+            <div id="flechasResult" style="display: none;">
+                <h3>Seu Mapa de Nascimento</h3>
+                <div id="numerologyGrid">
+                    </div>
+                
+                <div id="arrowsAnalysis">
+                    </div>
+
+                <div id="repeatedNumbersAnalysis">
+                    </div>
+            </div>
+
+            <button id="btnFlechasBackToHome">Voltar</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

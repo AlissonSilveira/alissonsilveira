@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice de Números - Numerologia</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .numbers-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .numbers-list li {
+            background-color: #e6e6fa; /* Lavanda */
+            border: 1px solid #d8bfd8;
+            border-radius: 8px;
+            text-align: center;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .numbers-list li a {
+            display: block;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #6a0dad; /* Roxo */
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .numbers-list li a:hover {
+            background-color: #d8bfd8;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Escolha um Número para Detalhes</h1>
+    </header>
+
+    <main>
+        <ul class="numbers-list">
+            <li><a href="meaning_1.html">1</a></li>
+            <li><a href="meaning_2.html">2</a></li>
+            <li><a href="meaning_3.html">3</a></li>
+            <li><a href="meaning_4.html">4</a></li>
+            <li><a href="meaning_5.html">5</a></li>
+            <li><a href="meaning_6.html">6</a></li>
+            <li><a href="meaning_7.html">7</a></li>
+            <li><a href="meaning_8.html">8</a></li>
+            <li><a href="meaning_9.html">9</a></li>
+            <li><a href="meaning_11.html">11 (Mestre)</a></li>
+            <li><a href="meaning_22.html">22 (Mestre)</a></li>
+            <li><a href="meaning_33.html">33 (Mestre)</a></li>
+        </ul>
+
+        <button onclick="window.location.href='index.html'">Voltar ao Início</button>
+    </main>
+</body>
+</html>
